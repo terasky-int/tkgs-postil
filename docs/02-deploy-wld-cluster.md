@@ -63,5 +63,5 @@ cp wld-cluster-template.yaml <WLD-CLUSTER-NAME>.yaml
 Once you have filled out the required information, you can apply the manifest to deploy the cluster.
 
 ```bash
-kubectl apply -f clusters/mob-wlc-dev.yaml
+kubectl apply -f <WLD-CLUSTER-NAME>.yaml
 ```
