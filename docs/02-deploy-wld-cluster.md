@@ -50,6 +50,7 @@ cp wld-cluster-template.yaml <WLD-CLUSTER-NAME>.yaml
 ```
 
 - Update Namespace name for the secret and for the cluster
+- Update Cluster name
 - Update the name and the value of the `additional-ca-1` in the `Secret` `<WLD-CLUSTER-NAME>-user-trusted-ca-secret`.
 - Update the Storage class
 - Update VM Classes
@@ -61,3 +62,6 @@ cp wld-cluster-template.yaml <WLD-CLUSTER-NAME>.yaml
 
 Once you have filled out the required information, you can apply the manifest to deploy the cluster.
 
+```bash
+kubectl apply -f clusters/mob-wlc-dev.yaml
+```
