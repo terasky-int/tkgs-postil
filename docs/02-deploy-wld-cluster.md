@@ -46,7 +46,7 @@ cat ca.crt | base64 | tr -d "\n" | base64 | tr -d "\n"
 ```
 
 ```bash
-cp wld-cluster-template <WLD-CLUSTER-NAME>.yaml
+cp wld-cluster-template.yaml <WLD-CLUSTER-NAME>.yaml
 ```
 
 - Update Namespace name for the secret and for the cluster
