@@ -38,12 +38,7 @@ tanzu package install cert-manager -p cert-manager.tanzu.vmware.com -v 1.17.1+vm
 ## Install Contour
 Contour is an ingress controller that provides advanced routing capabilities. You can install it in two ways:
 
-1. Basic installation with default settings:
-```bash
-tanzu package install contour -p contour.tanzu.vmware.com -v 1.30.2+vmware.2-tkg.1 -n tanzu-packages
-```
-
-2. Custom installation with a values file:
+Custom installation with a values file:
 ```bash
 tanzu package install contour -p contour.tanzu.vmware.com -v 1.30.2+vmware.2-tkg.1 -n tanzu-packages --values-file contour-values.yaml
 ```
