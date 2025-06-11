@@ -45,7 +45,12 @@ To pull images from a private Harbor registry, you need to add the Harbor CA cer
 cat ca.crt | base64 | tr -d "\n" | base64 | tr -d "\n"
 ```
 
-- Update the value of the `additional-ca-1` in the `Secret` `<WLD-CLUSTER-NAME>-user-trusted-ca-secret`.
+```bash
+cp wld-cluster-template <WLD-CLUSTER-NAME>.yaml
+```
+
+
+- Update the name and the value of the `additional-ca-1` in the `Secret` `<WLD-CLUSTER-NAME>-user-trusted-ca-secret`.
 - Update the Storage class
 - Update VM Classes
 - Update Network settings (pods and services CIDR)
@@ -55,3 +60,4 @@ cat ca.crt | base64 | tr -d "\n" | base64 | tr -d "\n"
 
 
 Once you have filled out the required information, you can apply the manifest to deploy the cluster.
+
