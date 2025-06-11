@@ -49,7 +49,7 @@ cat ca.crt | base64 | tr -d "\n" | base64 | tr -d "\n"
 cp wld-cluster-template <WLD-CLUSTER-NAME>.yaml
 ```
 
-
+- Update Namespace name for the secret and for the cluster
 - Update the name and the value of the `additional-ca-1` in the `Secret` `<WLD-CLUSTER-NAME>-user-trusted-ca-secret`.
 - Update the Storage class
 - Update VM Classes
