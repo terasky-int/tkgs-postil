@@ -28,7 +28,19 @@ Before deploying a workload cluster, you need to configure several variables in 
 
 ```bash
 kubectl get virtualmachineclasses
-
 kubectl get tkr
-
 kubectl get sc
+```
+
+
+---
+
+To pull images from a private Harbor registry, you need to add the Harbor CA certificate to the nodes. This requires the CA certificate to be double base64 encoded.
+
+1. Get your Harbor CA certificate in .crt format
+
+2. Double base64 encode the certificate:
+
+```bash
+cat ca.crt | base64 | tr -d "\n" | base64 | tr -d "\n"
+```
