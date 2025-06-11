@@ -65,3 +65,9 @@ Once you have filled out the required information, you can apply the manifest to
 ```bash
 kubectl apply -f <WLD-CLUSTER-NAME>.yaml
 ```
+
+Login to the `workload cluster` with that command: 
+```bash
+kubectl vsphere login --server=172.18.29.12 --tanzu-kubernetes-cluster-namespace test-ns --vsphere-username=administrator@vsphere.local --tanzu-kubernetes-cluster-name <WLD-CLUSTER-NAME>
+```
+
