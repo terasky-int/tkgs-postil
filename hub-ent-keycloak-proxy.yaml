@@ -1,0 +1,22 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: hub-ent-keycloak
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: hub-ent-keycloak.local
+    tls:
+      secretName: hub-ent-keycloak-tls
+  routes:
+    - services:
+        - name: hub-ent-keycloak
+          port: 80
+      conditions:
+        - prefix: /
+    - services:
+        - name: hub-ent-keycloak
+          port: 443
+      conditions:
+        - prefix: /
+      enableWebsockets: true 

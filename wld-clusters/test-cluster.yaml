@@ -1,0 +1,99 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mob-wlc-dev-user-trusted-ca-secret
+  namespace: dev-ns
+data:
+  # Certificate of the repository or certificate of the person who signed it (double base64)
+  additional-ca-1: TFMwdExTMUNSVWRKVGlCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2sxSlNVUmtla05EUVd3clowRjNTVUpCWjBsUlNEUjNUbVJVYUV0RFNuQlBkamhMTVV4NlVEZHpSRUZPUW1kcmNXaHJhVWM1ZHpCQ1FWRnpSa0ZFUWs4S1RWSlZkMFYzV1V0RFdrbHRhVnBRZVV4SFVVSkhVbGxHWWtjNWFsbFhkM2hHZWtGV1FtZHZTbXRwWVVwckwwbHpXa0ZGV2tablpEQmFXRXBvWXpKME5RcE5VbmQzUjJkWlJGWlJVVVJGZUU0d1dsaEthR015ZERWTVZYaENVV2t4UWxKRVFYaE1WVTVDVFVJMFdFUlVSVFJOVkVsNVRVUkZNRTVVVlRCT1JtOVlDa1JVVFhwTlZFbDVUVVJGTVUxRVZUQk5NVzkzVkdwRlZrMUNUVWREWjIxVFNtOXRWRGhwZUd0QlVtdFhRbGQ0ZGxreVJuTk5VbU4zUmxGWlMwTmFTVzBLYVZwUWVVeEhVVUpIVWxsSVpFZFdlVmxZVG5KbFZFVmpUVUp2UjBFeFZVVkJlRTFVWkVkV2VWbFlUbkpsVXpGTlVWVkpkRkZWVVhkTlV6RkVVVlJEUXdwQlUwbDNSRkZaU2t0dldrbG9kbU5PUVZGRlFrSlJRVVJuWjBWUVFVUkRRMEZSYjBOblowVkNRVXhXV0hBd1VsaHlUMDlEWm1SVlpFbFVObUYxYURVMENtRlROWE4yU1ROUFZtbDBWR1ZtVUZGaVJUUXhkMFUwWTFGUk5sbDZTREIyY25RM1FqWnNjbmxNU0ZGMEwwVlJPR3hWVlROUVRFZEVPVTRyVDI1cldXd0thMnRLY21aVFoyRlRNSGxMVTNodGFYSmthRmxSTkhaNlozcHNMMmh5UlhNeFprRlFXVm8yTmtVcmEzbEJjMjlhUVRSc1FuWnJSMHd4TkZaM01WTkJNQW81VGtWM2VUbHFPVFpzT1U5V2RGbFFjRFY0UjFjMFNXSkdaSGRMTWs5NmJXOVNXRkZHUm1kQmQzSmxRa2RPUzJsME0zQkpaa1JQYnk4MmJXWnhaVFZYQ25GWU5VTlpiR05WT1hKalIzVnpXbkJvYzBVMFdUVmtTMUZSZWxGMmRGTXdPVXhuU0VabE5qQTJXbTVRTVhVeWMxRlVkRnAyVnpkVVN6QkRZVzgxWm5NS1VrRjRUME5tUzFaeloxWjFTVlZOYlVoS2QwbFJLMng0TUVkUVMzcHBWV3g2SzJGMFFtMDVaMDlVV1hCalptUXpjRmxRTVVKUFFuQk9UelJPVVRrNFF3cEJkMFZCUVdGT1VrMUZPSGREZDFsRVZsSXdVRUpCVVVSQlowZEhUVUU0UjBFeFZXUkZkMFZDTDNkUlJrMUJUVUpCWmpoM1NGRlpSRlpTTUU5Q1FsbEZDa1pJU0U0clZscDZMMWhHUjBKSlpFWm1PRVY2VW5ZeU5uZDFXRkZOUWtGSFExTnpSMEZSVVVKbmFtTldRVkZSUkVGblJVRk5RVEJIUTFOeFIxTkpZak1LUkZGRlFrTjNWVUZCTkVsQ1FWRkNTMnBGUWxKUlNFUnpZMDFhWm5CaFZFSm1SRGhMY2pCTVUyZHBibkp6VTBKTldtdGlVSGRNTW10MWJUbFBkVk01UmdwelZWWlFPRWQ0T1ZjM2REQkpkek12ZUdGSE4wMXFMMVpPVURWSFNEVlZORkF6VVc1NmRYUlJNVW81TDFWc2IxaHJSVGhsWkhscVlsRXZVelZMZUZVNENqQkVSRkJaU1hrMmFUZEJSMDluUjNSdVltNHpiRFphYkV0WGQwUjVjR1F6VkZjd1ZGRXdWVkZPYlRscU5GaHVUbTl2TTB4d2JURnBWM05LVkZSQ01Hd0tiRmROWlZOeE16Wk9lSEF5VHpsWmNuaDZhbWh4ZG5STFRtWktOakF6WTBneWNWbE1LMVV2WjBWNE9FcDFWR1ZMZEVwUU9USTNibk5xU2xVemJHbHRlZ3BZU3pGamRuZHhRbHBTYkVGWGNHZDBSR3hSU1d3NFUzQjFObmMyVERKQmFXZFZkSGcwWmpoWk1GRldWMjlFV0V3M2RteFhOMUp4U2xRMFRIcENVbFJ6Q2tsNU1VZEdWamx4ZG5GM05GZGxUV3MzVFhsMlFXUnJNM2QzVnk5blEwMVJZMUJ6U0FvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0
+type: Opaque
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: mob-wlc-dev
+  namespace: dev-ns
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+      # - 192.0.2.0/16
+      - 192.0.2.0/20
+    serviceDomain: cluster.local
+    services:
+      cidrBlocks:
+      - 198.51.100.0/12
+  topology:
+    class: tanzukubernetescluster
+    version: v1.27.11+vmware.1-fips.1
+    controlPlane:
+      metadata:
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+      replicas: 1
+    workers:
+      machineDeployments:
+      - class: node-pool
+        name: tkgs-node-pool-1
+        variables:
+          overrides:
+          - name: vmClass
+            value: best-effort-small
+        metadata:
+          labels:
+            app: web1
+          annotations:
+            cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size: "1"
+            cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: "1"
+            run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+      # - class: node-pool        
+      #   name: tkgs-node-pool-2
+      #   variables:
+      #     overrides:
+      #     - name: vmClass
+      #       value: best-effort-small
+      #   metadata:
+      #     labels:
+      #       app: web1
+      #     annotations:
+      #       cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size: "1"
+      #       cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: "1"
+      #       run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+    variables:
+      - name: vmClass
+        value: best-effort-small
+      - name: controlPlaneVolumes
+        value:
+          - name: containerd
+            mountPath: /var/lib/containerd
+            storageClass: goldsp
+            capacity:
+              storage: 250Gi
+          - name: kubelet
+            mountPath: /var/lib/kubelet
+            storageClass: goldsp
+            capacity:
+              storage: 25Gi
+      - name: nodePoolVolumes
+        value:
+          - name: containerd
+            mountPath: /var/lib/containerd
+            storageClass: goldsp
+            capacity:
+              storage: 250Gi
+          - name: kubelet
+            mountPath: /var/lib/kubelet
+            storageClass: goldsp
+            capacity:
+              storage: 25Gi
+        # where to deploy nodes
+      - name: storageClass
+        value: goldsp
+        # where to pvc
+      - name: defaultStorageClass
+        value: goldsp
+      - name: trust
+        value:
+          additionalTrustedCAs:
+          - name: additional-ca-1

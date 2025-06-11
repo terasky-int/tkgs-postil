@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu
+  labels:
+    app: ubuntu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: ubuntu
+        image: ubuntu:latest
+        command: ["/bin/bash"]
+        args: ["-c", "sleep infinity"]
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+        volumeMounts:
+        - name: test-volume
+          mountPath: /home/ubuntu/test
+      volumes:
+      - name: test-volume
+        persistentVolumeClaim:
+          claimName: ubuntu-pvc 
