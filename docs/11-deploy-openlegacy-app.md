@@ -36,8 +36,9 @@ Edit the `installer-helm.sh` file to add the required modifications:
 # Navigate to the installation directory
 cd /opt/openlegacy
 
+
 # Edit the installer script
-nano installer-helm.sh
+vi installer-helm.sh
 ```
 
 ### Locate the prepare_installation() function
@@ -111,6 +112,15 @@ OL_SCREEN_PORT='1512'
 ## Step 5: Run the installation
 
 Execute the installer script from the correct directory:
+
+### Create namespace and configure security
+
+Create the namespace and configure pod security:
+
+```bash
+kubectl create ns hub-enterprise
+kubectl label --overwrite ns hub-enterprise pod-security.kubernetes.io/enforce=privileged
+```
 
 ```bash
 # Navigate to the installation directory

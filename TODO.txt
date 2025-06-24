@@ -1,0 +1,22 @@
+Copy customer files:
+    - wld-cluster-template.yaml
+
+
+
+- openlegacy - install script changes
+- openlegacy - folder and files location
+- openlegacy - config files
+- openlegacy - run script
+- openlegacy - httpproxy
+
+- openlegacy-service - secret - env
+- openlegacy-service - deployment
+- openlegacy-service - service & httpproxy
+
+
+
+
+- autoscale
+- packages scripts
+- login script
+
