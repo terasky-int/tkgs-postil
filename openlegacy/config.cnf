@@ -1,0 +1,7 @@
+[req]
+distinguished_name = OL_HUB
+prompt = no
+
+[OL_HUB]
+commonName = OpenLegacy Hub
+organizationName = OpenLegacy

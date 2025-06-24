@@ -1,0 +1,14 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: hub-service-1
+  namespace: openlegacy-service
+spec:
+  routes:
+  - conditions:
+    - prefix: /
+    services:
+    - name: hub-service-1
+      port: 80
+  virtualhost:
+    fqdn: hub-service-1.ipa-bs.org

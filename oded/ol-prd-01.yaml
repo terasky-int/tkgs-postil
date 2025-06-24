@@ -1,0 +1,99 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ol-prd-01-user-trusted-ca-secret
+  namespace: finance-prd-ns
+data:
+  # Certificate of the repository or certificate of the person who signed it (double base64)
+  additional-ca-1: TFMwdExTMUNSVWRKVGlCRFJWSlVTVVpKUTBGVVJTMHRMUzB0RFFwTlNVbEdSMVJEUTBGM1IyZEJkMGxDUVdkSlMxbGhkVWxMZDBGRVFVRkJRVU5xUVU1Q1oydHhhR3RwUnpsM01FSkJVWE5HUVVSQlZFMVNSWGRFZDFsRURRcFdVVkZFUlhkb1VWRnNTbEJVTVZKRVVWUkJaVVozTUhsTmFrRjRUVlJCZDA1NlZUTk9SRlpoUm5jd2VrMXFRWGhOVkVGM1QwUkJNMDVFVm1GTlJEaDREUXBGZWtGU1FtZHZTbXRwWVVwckwwbHpXa0ZGV2tablRuWmpiV040Um1wQlZVSm5iMHByYVdGS2F5OUpjMXBCUlZwR1oxcHdZMGRGZEZsdVRYaEZSRUZQRFFwQ1owNVdRa0ZOVkVJeFFrTlZNVlpEVVRCRmQyZG5SV2xOUVRCSFExTnhSMU5KWWpORVVVVkNRVkZWUVVFMFNVSkVkMEYzWjJkRlMwRnZTVUpCVVVSMkRRcFVWemxYU2pONlpscDFSMUV2Tld4NU5scERTMWRVYXpGc01rRjBaMDk2WmxNd0szQkxlazlQVVVkcU9UZzJTbkp2ZVVGemExaDVSamd3VVU5WEsxVmlEUXBpUXpab04wRkZRbWhvVGlzeFVFRmtkSGgxTm5OU2VtcGxSSFZUVmpoMlJWSmhUbGhqWVdkM2JGQktVR2RUTmswMEwwbDZUekpYYUUxMk0zSnRURWRKRFFwcWNEaEtVSFpWWmpSdVdrSnhlakJYVERGeFVpdFNWSEZFU1RsVVprNVNPVEp5THpNd2JWVnlRbFZuTjBJNFRsYzBhV0ZuYVdSMmN6WkhlVVprTlZWTERRcFdiVVJwY0ZRME1qQXlWbmt4T0RsUFozcFViRk5aU0VWeWFVUnFUVGRHUWtsb04wdzVhV3cyVTB0UVoxSmpkVmhZVWtkT2VrNXVhVXQ0TWpGWmEyMDREUXBsYnpWS1EwWk1UbE5YWmpoUGRUWnBOMnhVVEVGMWRFcHVURVJPTnpVMlFUUlVhM0JrYlVrM00wOHZiSFpUY1dwVWFqWndaRFkwYTFoUVUzSTVZa2xsRFFwdFYwVlNZa3BaZFd0clNrWm9TMVJJZWpabGNFRm5UVUpCUVVkcVoyZEdRazFKU1VKUVZFRlJRbWRyY2tKblJVVkJXVWt6UmxGRlJVRjNTVUpCYWtGcURRcENaMnR5UW1kRlJVRlpTVE5HVVVsRlJtZFJWV0Z6UkhKSFQzRlVaR2xsTTNOelpHWmhWMlJxVFRaSmNuRTJhM2RJVVZsRVZsSXdUMEpDV1VWR1VFWjVEUXBFZEVkQ2RWWlZaVGx2Y25aaGJqVkpVMkpsWkhCc1QyWk5SV2RIUVRGVlpFbEJVa0pOUkRoM1VGRlpTVXRuVFVWcGVUbEVWMUZWZDAxVVFYWkNaMmR5RFFwQ1owVkdRbEZqUTBGU1dXcGhTRkl3WTBSdmRrd3pRbkpoVXpVellWYzFhMkl6WkhwTVZ6VjJZakpKZFZreU9YUk1NazUzWTNrMU1HVklVWGRIVVZsS0RRcExkMWxDUWtGSFEwNTRVVU5DUVhkbFEyZENWRUZJVlVGWlowSkVRVVZGZDBOM1dVUldVakJRUWtGUlJFRm5SMGROUVRoSFFURlZaRVYzUlVJdmQxRkdEUXBOUVUxQ1FXWTRkMGgzV1VSV1VqQnFRa0puZDBadlFWVlpSVFkwY1dScVVWTXdMekU1U1haNmIwSjFXRGx3TlZCUmJ6aDNVVkZaU1V0M1dVSkNVVlZJRFFwQlVVVkZUbFJCZWsxRVJVZERRM05IUVZGVlJrSjZRVU5vYVZadlpFaFNkMDlwT0haalIzUndURzFzZDFsVE1XbGplVFYyWTIxamRtTkhkSEJNTVVKRERRcFZhemxRVmtWT1FrdEVUWEJOUVRCSFExTnhSMU5KWWpORVVVVkNRM2RWUVVFMFNVTkJVVUZWV2tkTldFUkxNMmM1WldWQ1UxTTBaRWRRVmxOb0szUkJEUXBTTkRoSVIySktWbVJKTlhwRVQxVlVNM0UyVEd4YVV6SlNjbU5GUld0NE5rOUljbmt2VTFNMU0wWmpPVlF6YTNSSGRpOHZTRTgzYW5sSWVYQlRPRlZtRFFvMVpIQTFOVVZJUkVKSWEwRkNWVTFwY1ROeVUyNVNaREoyTlZONFZFSnJjRFJEVTNkT1RISXdNa2w1ZEdSbWFuTnZkRzVUYldKTlRHSXZLMmM1V1hJNERRcHdlRVExZG1Rdk1HSlBRWGx4VFVWQlVsUk1Vbk01ZW10UE5sVXpRMmN5YWpkWmFEbDZObEowU2tjM1l6bFhjVGhuVVdaVGJYSk1VM0ZSZURCNVEzcFdEUW8xY0c1a05Yb3JRbXREY1U1aE1YaExXalYwZGxwRldFcGFiMFJRUTJRdlowSXhWSEl2Wm5WUGQyRkdWRmcyTW1WMFVFcDRaa0p2V2tJeFYyUlpPWFZQRFFvMWNIWlVXbnBaZEhWRGVUQXJZbTFxWm1VeWMxazJVRzFEZWk5TFlUa3phRTQzVUd4dFIyaGFlbWRyTWpSb00yTkJjR0pzVGxkNFZFdHJka1ZrU0hsWERRcGlaamN3UTBaeVptMTVSSGhWUjBwVU1GbFBkWGRNVUdWME4zSnlaU3N5Y1hGUEszbHpla2hOVEc1b1ZXMWpaRGxEUlhjMWNrVXhka0U1U0VKdVdEaDZEUXBOUkZVeE1YZENORk54SzJ4bFYzQktORGxoVjJSTFFub3JURGMyWmxWR05YUTRaMVkxTm5WWWREQXZTSEUzVkdoTlMwVkdUV0Z2Wm1SR2JIUkRXazFuRFFvMGRGcFVXRFJSVlZneE1YZEZiblZrTTNsb1RVZE1iWGxNWW5GelEySjZWVVZpUTI1T2RYZDFRMFJhZFhwVGEwRTBhRzAzYTNGcmJIcDNXV1ptUmt0TERRbzVVbU50ZFdwM2RFVjFiMjFVWmpRMk9HSmhZWGd5VDNNeU1rUjZlRXBrZW1SNFpIZFJNMGQ1ZDBaalJuUlVUMmhRVG5SbU5tdG1Va1ZEVGpsNVNVUlVEUXBxUmpoQ2RHZGpjRkZZTDB4bEswaG1SWEJKTm5STFF6RkNhVEF3UzNkc05VNU5lbWRWT0ZsV05sRklSblZTWlZwMGVUZzJVelUxTVhOQ04wVmtkR2w2RFFwVE1EY3haVUZsVkVkRU5XbFpNbWx3WW5jOVBRMEtMUzB0TFMxRlRrUWdRMFZTVkVsR1NVTkJWRVV0TFMwdExRMEtMUzB0TFMxQ1JVZEpUaUJEUlZKVVNVWkpRMEZVUlMwdExTMHREUXBOU1VsR1NtcERRMEYzTm1kQmQwbENRV2RKVVZORE1UZHVaamh0ZGpac1VITlVkbVpxT0RSWksycEJUa0puYTNGb2EybEhPWGN3UWtGUmMwWkJSRUZVRFFwTlVrVjNSSGRaUkZaUlVVUkZkMmhSVVd4S1VGUXhVa1JSVkVGbFJuY3dlRTFVUVRKTmFrRjNUbnBSTWsxRVpHRkdkekF3VFdwQmVFMVVRWGRPZWxGNkRRcE9SRVpoVFVKTmVFVlVRVkJDWjA1V1FrRk5WRU5HUWtOVmF6bFFWa1ZPUWsxSlNVTkpha0ZPUW1kcmNXaHJhVWM1ZHpCQ1FWRkZSa0ZCVDBOQlp6aEJEUXBOU1VsRFEyZExRMEZuUlVGM1EyVm5SbEZvT1d4a1dtOWFUWFJxTDJWRVVIaEtiRkJzTTI4MlZXMW9OM0ZaUVM5eVkxZHZhbkozUkVWWWQwcFRSbk01RFFvNVFYazBNa2hQTDFnMFYxb3daMEZZVDBaUE1XTXhOMkpJUkZaSE1VRlZRVFptYlZjM1FWVkNOR3BoVldoeVZrODNOa292Y0RoSGJHVm1TWE5qYWtOeURRcFFTSEppVEdOSlNrSjFlRGxGVUUxblpXbG9hRmhTVWxReWMwcFZVV2RpZVhKdldWa3ZSa2h5ZEU5RVEyMVBPVkZDYzNWVGRFY3dSalp6YURKa2FIRlZEUXB5VXpORFdsb3pOVk5tWkZKR0sxQnNRWHAwU2xkeU1tWnVZbE5aTUU4eGIzaG9NeTlRT1VwTmRVVTNTM3BLTW5aSWIxVmhkMVpWYlRkelExbFlTWFpDRFFveVMzZGpUWHB5UlN0bU1YcE9WazVzVFU5a1dYSnZhbkIwWjJNNFdGZHZPRzFGZEROb2FqUnJaazRyWnk5dk9YQlBObWwwVnl0WGRFSkZVbHBvV0hrNERRcDVVWGQ2VVdneGNtRnlNWGxZUlcwekswWmxTVTVSTVVSWlZXZzROMmxtUlRaSlJXeElTM1JXYTBkVWFEUllLM0l3VURWV2RERXhkMDgzT0hKU1lURkxEUXBxUVd0WFVYY3ZjMWhCUmxwdWRscGxNV2hUTlZCQ2NsTlVURUZSVmtWTk1qWnhLMXBxTUVWWlNrVlFla3BEY0dkaVNrb3lkUzlDWW1oVVNEWjFVM1ZuRFFwMFNtWlJaWEpRU21sdmFHVjZUWHBRZWtNM2FGQTBhazlpVEVSeWQxUkJkWEpZTDBsVWNXZDBTMXBJVTNBNGJYWTFaM3BqU3pSM1RHNVRMM1oxVVhaS0RRb3lVREJCTWtKNFRVaEpTWFZUVTBkWk1FMXRiMk50TjIwd1l6bElRMkZHTjFOMlFqUmlXbm92VWtvMVIyZFJPVmMyWTNoeWNuY3ZhRWRLV2xKcFVtOXdEUXBSTjJOcWMwRklhM0V5U2pWdmVXaG9kSFp0VUdoR2NuWjNNbE50ZFZoc1RrczBRbkJpVFVsbWJWb3pSRlo0UldwQlZIQm9jMnRaTTFWRmVuZDVibWRVRFFwbFltcFFjbTVuTVRoUE1pOXFNekZ2YjI1MFpHWldVWEpCUnl0UlVFNWxTMEkzUmtOTllXeHNRWEJJVjA5TmJtSlFWVzVpTjFoVlEwRjNSVUZCWVU0eURRcE5TRkYzUTNkWlJGWlNNRkJDUVZGRVFXZEhSMDFCT0VkQk1WVmtSWGRGUWk5M1VVWk5RVTFDUVdZNGQwaFJXVVJXVWpCUFFrSlpSVVpIUWs5MVMyNVpEUW93UlhSUU9XWlRURGcyUVdKc0wyRmxWREJMVUUxQ1FVZERVM05IUVZGUlFtZHFZMVpCVVZGRVFXZEZSRTFEVFVkRFUzTkhRVkZSUW1kcVkxWkJaMUZYRFFwQ1FsUkhSME42T0c5dGVVTXJUV2RpUmxKcFpHZHdUMmx3UkhJdk0zcEJUa0puYTNGb2EybEhPWGN3UWtGUmMwWkJRVTlEUVdkRlFVODVOSHBIUzJaeERRcDNOVUp1WlZaMWQzTnJSMDFFTjNkV2JXZDZRalkxUlRFemJVTkhkVGxpWjAxWGJFZFRaM1p0UW01eFIzTjRhMXBPVG1GWVdEZERVbTlOWXpoQldHbDBEUXBQUjBZMVEySlNSbWRFYkM4eFNuVnFlVGhaU1ZvMVRHaENZbmg1Y1hablNHSnVXbmg0WW5abk1WRndkbUZCV1V4bWVYQmhjMWw1TlRsR1VsUjVha0ZpRFFwWGEwNUVjeXN2WVRkSWNHMXZkVVY2U0hkS1lUQlVNVFJvU0ZCd09IaHZUQ3M1V21aRWVtZEhiM0E1ZEdvcmFsUTJNbWM0TkRkR1NqZDJRUzh6TDNaeURRcEZhbGxNZVZOc04yaENVazVIV21kUmFqSlVhbFJhZWpkVWJUZzFVME15VUhwSWNFSlljRzFsYUZGNVZFMUJibGR6SzJkUWFUaGpkMHBhYURGaVJGTXlEUXBwU0ZCalVscHBiek5RVjNkeGFHOU1XbnB1VTNVcldGWnlSblZKUkhsTFlrSldObVpNVmxZM2FrRm1VV1oxTm5wc1Z6Wldka3cxVHpWd01pdFVlblpLRFFwbGJVdFhOU3R6V0dKVE4zRmxVbVJvUjJWVk1uWnFSelpMVlVod2NIQXJiR1ZZVDJZNFFWaHVkMlpKVm1wdE4wMTFXRkZyVG0xRGVVUkVVREE1T0U5bURRb3dNMlpKUlVwMVVUTllaMlYzVERkMWMwNHJlbEF6YlVJNVkyRlphQ3RyYnpCWFZVMWlaa2xuVGtGb1FUTnZZa2s1U0hkeFZtd3pNR3hUTjNJckx6bEpEUW95UWtwSFRqRTNVMDUxVkdKb1FqTXhUamgxT0Uxc1lrSjNjRWRqUjFkTGJXTm9aSFJoTDJreWQwaFNaRk5CYkVKaFRFWjVTelZMZVhNd01YYzVOVmhHRFFveVpISTNhVmM0UlhaNFVYZE9OMVJtUm5keVdtOTNLMDFuZWpWV2FWbHZlRzlEWm10Tk5GTmlUVWR6ZWxOeFJYcFhXVE5sZVN0WWNqSnVjVFJxUTNwUURRcHZNblZLTmtkU1dGTXpkREUwVEc5NE5FMDBWRk5GVWxwa2MxbHlSVVp2VkdnMlZYZDBVazlaVm5ZME5FaFJSMjl3U1dKSWIzSm5UVXhzYm1sVWNrdHhEUXA0TVcwcldrNXNOMVEzVlcxSWJUSmFkbEkzZUVaQ00yMWhhMUZyYVRaWWNYTlhhejBOQ2kwdExTMHRSVTVFSUVORlVsUkpSa2xEUVZSRkxTMHRMUzBOQ2c9PQ==
+type: Opaque
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: ol-prd-01
+  namespace: finance-prd-ns
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+      - 192.0.3.0/16
+    serviceDomain: cluster.local
+    services:
+      cidrBlocks:
+      - 198.53.100.0/12
+  topology:
+    class: tanzukubernetescluster
+    version: v1.29.4+vmware.3-fips.1-tkg.1
+    controlPlane:
+      metadata:
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+      replicas: 3
+    workers:
+      machineDeployments:
+      - class: node-pool
+        name: tkgs-node-pool-1
+        replicas: 3
+        variables:
+          overrides:
+          - name: vmClass
+            value: best-effort-large
+        metadata:
+          labels:
+            app: web1
+          annotations:
+         #   cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size: "1"
+         #   cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: "5"
+            run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+      # - class: node-pool
+        # name: tkgs-node-pool-2
+        # variables:
+          # overrides:
+          # - name: vmClass
+            # value: best-effort-large
+        # metadata:
+          # labels:
+            # app: web1
+          # annotations:
+            # cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size: "1"
+            # cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: "5"
+            # run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+    variables:
+      - name: vmClass
+        value: best-effort-large
+      - name: controlPlaneVolumes
+        value:
+          - name: containerd
+            mountPath: /var/lib/containerd
+            storageClass: tanzu-storage-policy
+            capacity:
+              storage: 32Gi
+          - name: kubelet
+            mountPath: /var/lib/kubelet
+            storageClass: tanzu-storage-policy
+            capacity:
+              storage: 25Gi
+      - name: nodePoolVolumes
+        value:
+          - name: containerd
+            mountPath: /var/lib/containerd
+            storageClass: tanzu-storage-policy
+            capacity:
+              storage: 64Gi
+          - name: kubelet
+            mountPath: /var/lib/kubelet
+            storageClass: tanzu-storage-policy
+            capacity:
+              storage: 25Gi
+        # where to deploy nodes
+      - name: storageClass
+        value: tanzu-storage-policy
+        # where to pvc
+      - name: defaultStorageClass
+        value: tanzu-storage-policy
+      - name: trust
+        value:
+          additionalTrustedCAs:
+          - name: additional-ca-1

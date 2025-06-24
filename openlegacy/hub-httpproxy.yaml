@@ -1,0 +1,14 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: hub-enterprise
+  namespace: hub-enterprise
+spec:
+  routes:
+  - conditions:
+    - prefix: /
+    services:
+    - name: hub-enterprise
+      port: 80
+  virtualhost:
+    fqdn: hub-enterprise-k8s.ipa-bs.org

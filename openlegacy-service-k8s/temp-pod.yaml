@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: temp-pod
+  namespace: openlegacy-service
+  labels:
+    app: temp
+spec:
+  containers:
+  - name: temp
+    image: harbor-01.ipa-bs.org/openlegacy/main-frame-rpc-spring-java-rest:3.0.9
+    command: ["sleep"]
+    args: ["4800"]
+    volumeMounts:
+    - name: metadata-volume
+      mountPath: /usr/opz
+  volumes:
+  - name: metadata-volume
+    persistentVolumeClaim:
+      claimName: hub-service-1-pvc
+  restartPolicy: Never 

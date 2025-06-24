@@ -1,0 +1,21 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: hub-enterprise-keycloak
+  namespace: hub-enterprise
+spec:
+  routes:
+  - conditions:
+    - prefix: /
+    services:
+    - name: hub-enterprise-keycloak
+      port: 443
+      protocol: h2
+  tcpproxy:
+    services:
+    - name: hub-enterprise-keycloak 
+      port: 443
+  virtualhost:
+    fqdn: hub-enterprise-keycloak-k8s.ipa-bs.org
+    tls:
+      passthrough: true

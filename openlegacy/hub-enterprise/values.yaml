@@ -1,0 +1,166 @@
+# Default values for hub-enterprise.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+pullPolicy: IfNotPresent
+
+podAnnotations: {}
+
+monitoring:
+  deploy: false
+
+# securityContext:
+#   privileged: true
+#   capabilities:
+#     drop:
+#     - ALL
+#   readOnlyRootFilesystem: true
+#     # runAsNonRoot: false
+#   allowPrivilegeEscalation: true
+#   seccompProfile:
+#     type: RuntimeDefault
+
+# podSecurityContext:
+#   # runAsNonRoot: false
+# # fsGroup: 2000
+
+resources: {}
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+### Hub Enterprise - chart data
+# optional: deploy postgres with the chart
+postgres:
+  deploy: true
+  image: "harbor-01.ipa-bs.org/openlegacy/postgres:13"
+
+# required
+dbData:
+  OL_DB_PASSWORD: "postgres"
+  OL_DB_USER: "postgres"
+  OL_DB_HOST: "hub-enterprise-postgres"
+  OL_DB_NAME: "postgres"
+  OL_DB_PORT: "5432"
+  JAEGER_SERVICE_NAME: HUB_ENTERPRISE  # do not remove
+
+# required
+keycloak:
+  image: "harbor-01.ipa-bs.org/openlegacy/openlegacy-keycloak:22.0.5"
+  hostname: hub-enterprise-keycloak-k8s.ipa-bs.org  # KEYCLOAK external DNS name
+  ingress:
+    type: contour
+    pathType: Prefix
+  env:
+    KEYCLOAK_ADMIN: "root"
+    KEYCLOAK_ADMIN_PASSWORD: "openlegacy"
+    KC_DB_URL: "jdbc:postgresql://hub-enterprise-postgres/postgres"  # DB address, has to be accessible by pods# DB address, has to be accessible by pods
+    KC_DB_URL_PORT: "5432"
+    KC_DB: "postgres"
+    KC_DB_SCHEMA: "keycloak"
+    KC_DB_PASSWORD: "postgres"
+    KC_DB_USERNAME: "postgres"
+    KC_HOSTNAME_STRICT: "false"
+    KC_HTTPS_KEY_STORE_FILE: "/opt/keycloak/keystore/openlegacy.jks"
+    KC_HTTPS_KEY_STORE_PASSWORD: "openlegacy"
+    KC_HTTP_ENABLED: "true"
+    KC_HTTP_RELATIVE_PATH: "/auth"
+
+# required
+dbMigration:
+  image: "harbor-01.ipa-bs.org/openlegacy/hub-enterprise-db-migration:3.0.9.1"
+
+# required
+hubEnterprise:
+  image: "harbor-01.ipa-bs.org/openlegacy/hub-enterprise:3.0.9.1"
+  hostname: hub-enterprise-k8s.ipa-bs.org  # HUB external DNS name
+  OL_SCREEN_PORT: "1512"
+  ingress:
+    type: contour
+    pathType: Prefix
+  service:
+    type: ClusterIP
+    port: 80
+  storage:
+    size: 4G
+    mountPath: "/home/ubuntu/ol-hub-tenant-artifacts"
+  LibStorage:
+    size: 1G
+    mountPath: "/usr/app/lib"
+  env:
+    AUTH_DOMAIN: https://hub-enterprise-keycloak-k8s.ipa-bs.org
+    OL_HUB_PK_API_KEY_SIGN: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLwv9bFdy+UOpN\nEIt5Upw3DUvRSZn/y6vWFKo7k0iasv33oAaaB413vlwPFEbJjS0AlOTE4+6IlPTr\npZUAvbikxbemQvgFbBE8LiMbgZFwMKS37UyVd2v+UV0NOdRhw+w8lsYWUePRhRz4\nDT2vS60SiSuPQqfBU142o7d1msOcftndUs3l9YGmvCZvVy62rObqBkf76hzWi8Qk\nFLk2pG6YznIJ2JPhiSCNacCPGqI8i0dhllxiDV1m/NoQNxJqvBRcywI0arX8H8Sg\nxrvTrpajNOSVSIhJRHPZtJwSiMTqH1Bes9vmF7Bg7h5HxneuODG4iCgGDpEZks6I\nS/YTnj8JAgMBAAECggEAFDPd6WgsIi8H4hLyPznUfQVbl3E8nH7zR0c2fzBp1hPJ\n6D3Etcwqp70XJ9QW9igiFoEMwyRFy+M3+u7IjKGi72xemnSgnnoB5fV9m94vf0AF\nbuqPabDk41rqFtP9ZaGdOD8rPf6Jz+XqssHuVCV00CYLTHmbhCipylFWcOnCvA7u\n6b8sDbeF+vtYOx4Yu0VSKZOtyElCNqMtf683R3DtmTaRmgC8Kbiitvi9+AsLfmiZ\nY48/2mqjzn4kjlPDLMjQVNBQ6sfoWknOxTaM5WNo7Y7lT8S6ap8pNjH8vQGeDpcl\n/3ggBnI1Unl5xZBrLsmhyeA0jSTK78xH0yC+5deAEQKBgQDp2J8c+wSgfeoI4E/L\nSqSqfg4NK2CSo338K/93FRX75m+V0miRr0raHo5+hTU7z3uFORWdqf5iIbyxmdig\nHwDABvyQ2SUmJSEZTXeETuE3khJ0/9Abc0F6O7tUtjyoybjbY4f8dErh0nR5pJEk\n8llpXA9ooHR5qdz/isxk5dHwEQKBgQDfEL/QTV4cdRil9tQPM0cr1aKTRfCv+xWJ\nfXWwp5GWovCZTpNCBFplygnr9WswB56DbRz1oe6jIhIV79fu+OdlWZFoMBgTvqkY\ndyxTeobyGsTr08amxBy83Kl/G7X2qUTVJ9fh7HwGyMqa6OKWq/D2K5vyfxfjtrcy\niVoKO+5XeQKBgF9tPsEczm6P84lbwDQ9aaUJe8J0CRzOCwN1EPMPb8Ez8CU7j+Cj\nn/ASuCN5SJf3u3hKK0ADtwNksRPorDXrcOrr7vVNJ5PBYxhoPHWJmu6KdW25Vrtc\n9UNkTLXtCCP47a7Zlwy2iDhPIajiNzjUjRgpsUAI+n8Lilvd0Dr8bgeBAoGBAK2R\nx99axDcaemJxjJKDUQbvxgAYtO8KTbjdMZ2S1ftDsDlqZbVB0+FOc6fyIESQOSyE\n07riFOFFGpONPBWMAenf5wAOJD4A5mzOFmSie6yZXc8uy21qPf5LKWxpcI6NKa0+\nwoHeVKemx9gADIg3JFk4l7D6aelbfHNLYw+BkLTpAoGAGwH/ctF2w8NSR3V66tRo\nnzSsoo5XKK5xG4KGJ5pRD4PVWN+BXf+HXZHnCNATV4WcV3E4G07ry/7UaxbPEbZR\nVFyap8B4h4RKZdQGYDUXNXavGDQo1tYcfjt521dfxUG9oQ8AuJQRtsnpUdDLI+bo\nZ1iQxtLb1Ygrh6OZZsgzAYg=\n-----END PRIVATE KEY-----\n"
+    OL_HUB_ENCRYPT_SECRET: 6uLkYK6m46CSHqaNBFlaxPT4IwGX9RTh
+    KEYCLOAK_MANAGEMENT_CLIENT_ID: "hub-client"
+    KEYCLOAK_MANAGEMENT_CLIENT_SECRET: "mah60XdjXsGVRyqfi46vn1uQfwlIxb4L"
+
+# optional: credentials for your image registry with HUB-ENTERPRISE images
+loki:
+  image: ""
+  hostname:   # Loki external DNS name
+  ingress:
+    type: contour
+    pathType: Prefix
+  storage:
+    size: 1G
+    mountPath: /loki
+
+grafana:
+  image: ""
+  hostname:   # Graphana external DNS name
+  ingress:
+    type: contour
+    pathType: Prefix
+  storage:
+    size: 1G
+    mountPath: /var/lib/grafana
+
+prometheus:
+  image: ""
+  storage:
+    size: 1G
+    mountPath: /etc/prometheus
+
+pushgateway:
+  image: ""
+  hostname:   # Pushgateway external DNS name
+  ingress:
+    type: contour
+    pathType: Prefix
+
+imageCredentials:
+  registry: 

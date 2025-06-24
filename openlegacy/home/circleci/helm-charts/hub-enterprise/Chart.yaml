@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: 3.0.1
+description: A Helm chart for OpenLegacy Hub-Enterprise. Works with OpenShift/Kubernetes
+name: hub-enterprise
+type: application
+version: 1.0.9
