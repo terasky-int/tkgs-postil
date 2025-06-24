@@ -1,0 +1,79 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+{
+  "title": "vSphere with Tanzu Documentation Rules",
+  "rules": [
+    {
+      "name": "Use H1 only for document title",
+      "level": "error",
+      "pattern": "^# ",
+      "condition": "only-one"
+    },
+    {
+      "name": "Use sentence case for all headings",
+      "level": "warning",
+      "pattern": "^(#+)\\s+(.*)",
+      "action": "ensure sentence case in $2"
+    },
+    {
+      "name": "Use fenced code blocks for commands and YAML",
+      "level": "error",
+      "pattern": "^(?!```)(kubectl|helm|apiVersion:|kind:|metadata:)",
+      "action": "wrap in ```bash or ```yaml"
+    },
+    {
+      "name": "Use consistent list style",
+      "level": "warning",
+      "pattern": "^\\* ",
+      "condition": "avoid asterisks, use dashes (-)"
+    },
+    {
+      "name": "Use consistent terminology",
+      "level": "error",
+      "terms": {
+        "vSphere with Tanzu": ["vsphere with tanzu", "Vsphere with Tanzu"],
+        "NSX Advanced Load Balancer": ["NSX-ALB", "Avi", "AVI"],
+        "workload cluster": ["Workload Cluster", "cluster"],
+        "Supervisor Cluster": ["supervisor cluster"]
+      }
+    },
+    {
+      "name": "Avoid passive voice",
+      "level": "info",
+      "pattern": "\\b(is|was|were|are|be|been|being)\\b.*\\bby\\b",
+      "suggestion": "Consider using active voice"
+    },
+    {
+      "name": "Use numbered steps for installation procedures",
+      "level": "warning",
+      "pattern": "^(\\d+\\.\\s+)?(Step|Install|Run)",
+      "condition": "should be part of a numbered list"
+    },
+    {
+      "name": "Use present tense in instructions",
+      "level": "info",
+      "pattern": "\\b(will|should|would)\\b",
+      "suggestion": "Prefer present tense: 'Run', 'Apply', etc."
+    },
+    {
+      "name": "Avoid trailing whitespace",
+      "level": "warning",
+      "pattern": "\\s+$"
+    },
+    {
+      "name": "Prefer lowercase filenames in links",
+      "level": "error",
+      "pattern": "\\]\\(.*[A-Z].*\\)",
+      "suggestion": "Convert file paths in links to lowercase"
+    },
+    {
+      "name": "Add reference links to official docs when mentioning key technologies",
+      "level": "info",
+      "pattern": "\\b(vSphere with Tanzu|NSX[- ]?ALB|Avi|Kubernetes|Supervisor Cluster|Cluster API|Helm|kubectl)\\b",
+      "suggestion": "Add a Markdown link to the official website if not already linked"
+    }
+  ]
+}
