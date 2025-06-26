@@ -9,6 +9,6 @@ spec:
     - prefix: /
     services:
     - name: hub-service-1
-      port: 80
+      port: 8080
   virtualhost:
     fqdn: hub-service-1.ipa-bs.org

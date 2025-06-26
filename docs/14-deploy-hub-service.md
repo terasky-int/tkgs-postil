@@ -233,19 +233,19 @@ kubectl get pods -n openlegacy-service
 3. **Copy the OPZ file to the pod**:
 
 ```bash
-kubectl cp ol-project.opz temp-netshoot-pod:/usr/opz/ol-project.opz -n openlegacy-service
+kubectl cp ol-project.opz temp-pod:/usr/opz/ol-project.opz -n openlegacy-service
 ```
 
 4. **Verify the file was copied successfully**:
 
 ```bash
-kubectl exec temp-netshoot-pod -n openlegacy-service -- ls -la /usr/opz/
+kubectl exec temp-pod -n openlegacy-service -- ls -la /usr/opz/
 ```
 
 5. **Delete the temporary pod**:
 
 ```bash
-kubectl delete pod temp-netshoot-pod -n openlegacy-service
+kubectl delete pod temp-pod -n openlegacy-service
 ```
 
 ### Apply remaining files

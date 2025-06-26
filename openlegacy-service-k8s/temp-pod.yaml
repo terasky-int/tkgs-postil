@@ -19,3 +19,5 @@ spec:
     persistentVolumeClaim:
       claimName: hub-service-1-pvc
   restartPolicy: Never 
+  securityContext:
+    fsGroup: 1000
