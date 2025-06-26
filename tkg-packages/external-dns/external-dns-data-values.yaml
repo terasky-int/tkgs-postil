@@ -1,0 +1,19 @@
+deployment:
+  args:
+    - --provider=rfc2136
+    - --rfc2136-host=lab-ad01.terasky.local
+    - --rfc2136-port=53
+    - --rfc2136-zone=terasky.lab
+    - --rfc2136-gss-tsig
+    - --rfc2136-kerberos-realm=terasky.local
+    - --rfc2136-kerberos-username=tkg-admin
+    - --rfc2136-kerberos-password=VMware1!
+    - --rfc2136-tsig-axfr
+    - --source=service
+    - --source=ingress
+    - --source=contour-httpproxy
+    - --domain-filter=terasky.lab
+    - --txt-owner-id=mob-wlc-dev
+    - --txt-prefix=external-dns-
+    - --registry=txt
+    - --policy=sync
