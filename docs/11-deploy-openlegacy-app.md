@@ -59,10 +59,24 @@ prepare_installation() {
     # Add these lines after generate_secrets
     sed -i 's|postgres:13|harbor-01.ipa-bs.org/openlegacy/postgres:13|g' $HELM_VALUES_FILE_TEMPLATE
     cp /opt/openlegacy/helm-charts/hub-enterprise/templates/hub-enterprise/deployment.yaml.org /opt/openlegacy/helm-charts/hub-enterprise/templates/hub-enterprise/deployment.yaml
-    sed -i '/podSecurityContext.*nindent/a\
-        fsGroup: 1000' /opt/openlegacy/helm-charts/hub-enterprise/templates/hub-enterprise/deployment.yaml
+    # sed -i '/podSecurityContext.*nindent/a\
+    #     fsGroup: 1000' /opt/openlegacy/helm-charts/hub-enterprise/templates/hub-enterprise/deployment.yaml
 }
 ```
+
+```bash
+# Patch existing podSecurityContext to add fsGroup
+kubectl patch deployment hub-enterprise -n hub-enterprise --type='json' -p='[
+  {
+    "op": "add",
+    "path": "/spec/template/spec/securityContext/fsGroup",
+    "value": 1000
+  }
+]'
+
+kubectl rollout restart deployment hub-enterprise -n hub-enterprise
+```
+
 
 ## Step 4: Verify and update configuration
 
