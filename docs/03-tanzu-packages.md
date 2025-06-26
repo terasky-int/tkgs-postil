@@ -28,6 +28,16 @@ To get detailed information about a specific package, including its configuratio
 tanzu package available get contour.tanzu.vmware.com
 ```
 
+## Change to Package Directory
+Before installing any packages, change to the directory containing the package configuration files:
+
+```bash
+cd /home/k8s/tanzu-packages
+```
+
+
+
+
 ## Install Cert-Manager
 Cert-manager is required for managing TLS certificates in your cluster. It's a prerequisite for many other packages, especially those that require HTTPS/TLS termination.
 
@@ -82,6 +92,10 @@ paused: false
 EOF
 ```
 
+```bash
+mv cluster-autoscaler-values.yaml <CLUSTER-NAME>-autoscaler-values.yaml
+```
+
 ### Install Cluster Autoscaler
 Install the cluster autoscaler package with the appropriate version:
 
@@ -89,7 +103,7 @@ Install the cluster autoscaler package with the appropriate version:
 tanzu package install cluster-autoscaler-pkgi \
 --package cluster-autoscaler.tanzu.vmware.com \
 --version 1.27.2+vmware.1-tkg.3 \
---values-file cluster-autoscaler-values.yaml \
+--values-file <CLUSTER-NAME>-autoscaler-values.yaml \
 --namespace tanzu-packages 
 ```
 
