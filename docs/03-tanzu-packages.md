@@ -74,7 +74,9 @@ Create a values file for the cluster autoscaler configuration:
 ```bash
 export CLUSTER_NAME=your-cluster-name
 export VSPHERE_NAMESPACE=your-vsphere-namespace
+```
 
+```bash
 cat > cluster-autoscaler-values.yaml <<-EOF
 arguments:  
   ignoreDaemonsetsUtilization: true  
