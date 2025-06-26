@@ -43,6 +43,58 @@ Custom installation with a values file:
 tanzu package install contour -p contour.tanzu.vmware.com -v 1.30.2+vmware.2-tkg.1 -n tanzu-packages --values-file contour-values.yaml
 ```
 
+## Install Cluster Autoscaler
+
+### Prerequisites
+Before installing the cluster autoscaler, ensure you meet the following requirements:
+- vSphere 8 U3 or later
+- TKr 1.27.x or later for vSphere 8
+- The minor version of the TKr and the minor version of the Cluster Autoscaler package must match
+
+### Get Available Versions
+First, list the available package versions to find the correct version for your cluster:
+
+```bash
+tanzu package available get cluster-autoscaler.tanzu.vmware.com -n tkg-system
+```
+
+### Create Values File
+Create a values file for the cluster autoscaler configuration:
+
+```bash
+export CLUSTER_NAME=your-cluster-name
+export VSPHERE_NAMESPACE=your-vsphere-namespace
+
+cat > cluster-autoscaler-values.yaml <<-EOF
+arguments:  
+  ignoreDaemonsetsUtilization: true  
+  maxNodeProvisionTime: 15m  
+  maxNodesTotal: 0  
+  metricsPort: 8085  
+  scaleDownDelayAfterAdd: 10m  
+  scaleDownDelayAfterDelete: 10s  
+  scaleDownDelayAfterFailure: 3m  
+  scaleDownUnneededTime: 10m
+clusterConfig:  
+  clusterName: "${CLUSTER_NAME}"  
+  clusterNamespace: "${VSPHERE_NAMESPACE}"
+paused: false
+EOF
+```
+
+### Install Cluster Autoscaler
+Install the cluster autoscaler package with the appropriate version:
+
+```bash
+tanzu package install cluster-autoscaler-pkgi \
+--package cluster-autoscaler.tanzu.vmware.com \
+--version 1.27.2+vmware.1-tkg.3 \
+--values-file cluster-autoscaler-values.yaml \
+--namespace tanzu-packages 
+```
+
+**Important**: Replace the version with the one that matches your TKr version. The minor version of the TKr and the minor version of the Cluster Autoscaler package must match.
+
 ## Verify Installation
 After installing packages, you can verify their status using:
 
@@ -55,6 +107,8 @@ tanzu package installed list -A
 
 # Check specific package status
 tanzu package installed get cert-manager -n tanzu-packages
+tanzu package installed get contour -n tanzu-packages
+tanzu package installed get cluster-autoscaler-pkgi -n tanzu-packages
 ```
 
 ## Common Operations
@@ -85,6 +139,19 @@ tanzu package repository list -A
 ```bash
 tanzu package installed list -A
 ```
+
+3. For cluster autoscaler issues, verify version compatibility:
+```bash
+# Check TKr version
+kubectl get tkr
+
+# Check cluster autoscaler version
+tanzu package installed get cluster-autoscaler-pkgi -n tanzu-packages
+```
+
+## Related Documentation
+
+- [Cluster Autoscaling](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-9DEE9694-81E3-4895-BA66-7A45F3E69894.html)
 
 
 
