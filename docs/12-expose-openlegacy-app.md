@@ -100,7 +100,7 @@ kubectl describe httpproxy keycloak-proxy -n hub-enterprise
 Retrieve the external IP address of the Contour LoadBalancer service:
 
 ```bash
-kubectl get svc -n vmware-tanzu-ingress envoy
+kubectl get svc -n tanzu-system-ingress envoy
 ```
 
 Look for the `EXTERNAL-IP` column in the output. The IP address will be used for DNS configuration.

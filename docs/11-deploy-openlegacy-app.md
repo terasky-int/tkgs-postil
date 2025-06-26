@@ -132,18 +132,3 @@ chmod +x installer-helm.sh
 # Run the installation
 ./installer-helm.sh
 ```
-
-## Next steps
-
-After successful deployment:
-
-1. Access the OpenLegacy Hub at `https://hub-enterprise-k8s.ipa-bs.org`
-2. Access Keycloak at `https://hub-enterprise-keycloak-k8s.ipa-bs.org`
-3. Configure initial users and authentication
-4. Set up monitoring and logging as needed
-
-## Related documentation
-
-- [OpenLegacy Documentation](https://docs.openlegacy.com/)
-- [Kubernetes Deployment Guide](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-- [Harbor Registry Documentation](https://goharbor.io/docs/)
