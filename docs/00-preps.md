@@ -57,7 +57,7 @@ tanzu plugin download-bundle --group vmware-tkg/default:v2.5.2 --to-tar plugin-b
 Download the TKG service package with signature verification:
 
 ```bash
-imgpkg copy -b projects.packages.broadcom.com/vsphere/iaas/tkg-service/3.1.0/tkg-service:3.1.0 --to-tar tkg-service-v3.1.0.tar --cosign-signatures
+tanzu imgpkg copy -b projects.packages.broadcom.com/vsphere/iaas/tkg-service/3.1.0/tkg-service:3.1.0 --to-tar tkg-service-v3.1.0.tar --cosign-signatures
 ```
 
 ## Phase 2: Transfer files to admin VM
